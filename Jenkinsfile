@@ -1,25 +1,13 @@
+// Declarative //
 pipeline {
-    agent any 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'doing build ' 
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'doing  Test' 
-            }
-        }
-        
-        stage('deploy') {
-            steps {
-                echo 'doing  deploy   now' 
-            }
-        }
-    
-       
-    
-    }
+agent { dockerfile true }
+stages {
+stage('Test') {
+steps {
+sh 'node --version'
+sh 'svn --version'
 }
+}
+}
+}
+// Script //
